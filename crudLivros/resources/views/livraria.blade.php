@@ -7,6 +7,8 @@
 </head>
 <body>
     <h1>Livraria</h1>
+    <p>{{ $nomeLivro }}</p>
+    <p>{{ $paginasLivro }}</p>
     <a href="{{ route('home-index' )}}">Clique aqui</a>
 </body>
 </html>

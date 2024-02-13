@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LivrariaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +40,8 @@ use Illuminate\Support\Facades\Route;
 // <p>{{ $idLivro }}</p>
 // <p>{{ $nomeLivro }}</p>
 
-Route::view('/livraria','livraria');
+
+//Route::view('/livraria','livraria');
 
 
 //Rota com nome definido
@@ -48,6 +50,7 @@ Route::get('/', function()
     return view('welcome');
 })->name('home-index');
 
+/*
 //Como chamar a rota acima:
 //<a href="{{ route('home-index' )}}">Clique aqui</a>
 
@@ -56,3 +59,6 @@ Route::fallback(function()
 {
     return "Erro de rota!";
 });
+*/
+
+Route::get('/livraria', [LivrariaController::class, 'index']);
