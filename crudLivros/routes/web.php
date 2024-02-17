@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LivrariaController;
+use App\Http\Controllers\livrosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,21 +19,21 @@ use App\Http\Controllers\LivrariaController;
 //  });
 
 
-// Route::view('/livraria','livraria');
+// Route::view('/livros','livros');
 
-//Route::view('/livraria', 'livraria', ['nomeLivro'=>'Nada de novo no front']);
+//Route::view('/livros', 'livros', ['nomeLivro'=>'Nada de novo no front']);
 
 //Enviando o parâmetro pela url, esse parâmetro já é enviado com uma função
 // para a view, o ? faz com que o envio de parâmetros seja opcional, então caso não seja
 // enviado um parâmetro não dá erro
-// Route::get('/livraria/{nomeLivro?}', function($nomeLivro = null){
-//     return view('livraria',['nomeLivro'=>$nomeLivro]);
+// Route::get('/livros/{nomeLivro?}', function($nomeLivro = null){
+//     return view('livros',['nomeLivro'=>$nomeLivro]);
 // });
 
 //Enviando + de um parâmetro e adicionando condições a eles
-// Route::get('/livraria/{idLivro?}/{nomeLivro?}', function($idLivro = null, $nomeLivro = null)
+// Route::get('/livros/{idLivro?}/{nomeLivro?}', function($idLivro = null, $nomeLivro = null)
 // {
-//     return view('livraria', ['idLivro'=>$idLivro, "nomeLivro"=>$nomeLivro]);
+//     return view('livros', ['idLivro'=>$idLivro, "nomeLivro"=>$nomeLivro]);
 // })->where(['idLivro' => '[0-9]+', 'nomeLivro' => '[a-z]+']);
 
 // Como exibir o conteúdo acima no html
@@ -41,24 +41,38 @@ use App\Http\Controllers\LivrariaController;
 // <p>{{ $nomeLivro }}</p>
 
 
-//Route::view('/livraria','livraria');
+//Route::view('/livros','livros');
 
 
 //Rota com nome definido
-Route::get('/', function()
-{
-    return view('welcome');
-})->name('home-index');
+// Route::get('/', function()
+// {
+//     return view('welcome');
+// })->name('home-index');
 
 /*
 //Como chamar a rota acima:
 //<a href="{{ route('home-index' )}}">Clique aqui</a>
+
+//Route::get('/livros', [livrosController::class, 'index']);
+*/
+
+//Criar um grupo de rotas
+//Todas as rotas que eu criar aqui dentro, terão o prefixo livros
+Route::prefix('livros')->group(function(){
+
+    Route::get('/',[LivrosController::class, 'index'])->name('livros-index');
+
+    Route::get('/create',[LivrosController::class, 'create'])->name('livros-create');
+
+    Route::post('/',[LivrosController::class, 'store'])->name('livros-store');
+
+});
 
 //Trata erros de rota
 Route::fallback(function()
 {
     return "Erro de rota!";
 });
-*/
 
-Route::get('/livraria', [LivrariaController::class, 'index']);
+
