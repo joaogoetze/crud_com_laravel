@@ -27,4 +27,28 @@ class LivrosController extends Controller
         Livro::create($request->all());
         return redirect()->route('livros-index');
     }
+
+    public function edit($id)
+    {
+        $livros = Livro::where('id', $id)->first();
+        if(!empty($livros))
+        {
+            return view('livros.edit', ['livros'=>$livros]);
+        }
+        else
+        {
+            return redirect()->route('livros-index');
+        }
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = [
+            'tituloLivro' => $request->tituloLivro,
+            'autorLivro' => $request->autorLivro
+        ];
+
+        Livro::where('id',$id)->update($data);
+        return redirect()->route('livros-index');
+    }
 }

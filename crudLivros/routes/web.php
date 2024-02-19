@@ -67,6 +67,10 @@ Route::prefix('livros')->group(function(){
 
     Route::post('/',[LivrosController::class, 'store'])->name('livros-store');
 
+    Route::get('/{id}/edit',[LivrosController::class, 'edit'])->where('id', '[0-9]+')->name('livros-edit');
+
+    Route::put('/{id}/',[LivrosController::class, 'update'])->where('id', '[0-9]+')->name('livros-update');
+
 });
 
 //Trata erros de rota
