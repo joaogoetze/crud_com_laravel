@@ -17,6 +17,13 @@ return new class extends Migration
             $table->string('autorLivro',55);
             $table->timestamps();
         });
+
+        DB::table('livros')->insert([
+            'tituloLivro' => 'Título do Livro',
+            'autorLivro' => 'Autor do Livro',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 
     /**
