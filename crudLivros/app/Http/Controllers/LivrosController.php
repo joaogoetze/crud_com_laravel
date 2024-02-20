@@ -10,7 +10,7 @@ class LivrosController extends Controller
 {
     public function index()
     {
-        $livros = Livro::all();
+        $livros = Livro::orderBy('id')->get();
         //dd($jogos);
 
         return view('livros.index', ['livros'=>$livros]);
@@ -49,6 +49,11 @@ class LivrosController extends Controller
         ];
 
         Livro::where('id',$id)->update($data);
+        return redirect()->route('livros-index');
+    }
+    public function destroy($id)
+    {
+        Livro::where('id',$id)->delete();
         return redirect()->route('livros-index');
     }
 }

@@ -9,7 +9,7 @@
   </div>
   <div class="col-sm-6">
     <a href="{{ route('livros-create') }}">Novo livro</a>
-  </div>
+  </div>x
 <div class="container">
   <table class="table">
     <thead>
@@ -26,7 +26,14 @@
         <th>{{ $livro->id }}</th>
         <th>{{ $livro->tituloLivro }}</th>
         <th>{{ $livro->autorLivro}}</th>
-        <th><a href="{{ route('livros-edit', ['id'=>$livro->id]) }}">Editar</a></th>
+        <th>
+          <a href="{{ route('livros-edit', ['id'=>$livro->id]) }}">Editar</a>
+          <form action="{{ route('livros-destroy', ['id'=>$livro->id]) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit">Deletar</button>
+          </form>
+        </th>
       </tr>
       @endforeach
     </tbody>

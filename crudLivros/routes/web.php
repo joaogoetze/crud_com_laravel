@@ -69,8 +69,9 @@ Route::prefix('livros')->group(function(){
 
     Route::get('/{id}/edit',[LivrosController::class, 'edit'])->where('id', '[0-9]+')->name('livros-edit');
 
-    Route::put('/{id}/',[LivrosController::class, 'update'])->where('id', '[0-9]+')->name('livros-update');
+    Route::put('/{id}',[LivrosController::class, 'update'])->where('id', '[0-9]+')->name('livros-update');
 
+    Route::delete('/{id}',[LivrosController::class, 'destroy'])->where('id', '[0-9]+')->name('livros-destroy');
 });
 
 //Trata erros de rota
