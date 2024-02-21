@@ -11,19 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('livros', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('tituloLivro',55);
-            $table->string('autorLivro',55);
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
-
-        DB::table('livros')->insert([
-            'tituloLivro' => 'Título do Livro',
-            'autorLivro' => 'Autor do Livro',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
     }
 
     /**
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('livros');
+        Schema::dropIfExists('users');
     }
 };
