@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LivroController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+Route::prefix('livros')->group(function()
+{
+    Route::get('/', [LivroController::class, 'index'])->name('livros-index');
+});
+
+Route::fallback(function()
+{
+    return "Erro de rota!";
 });
