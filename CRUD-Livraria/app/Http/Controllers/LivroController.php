@@ -13,4 +13,49 @@ class LivroController extends Controller
         $livros = Livro::orderBy('id')->get();
         return view('livros.index', ['livros'=>$livros]);
     }
+
+    public function create()
+    {
+        return view('livros.create');
+    }
+
+    public function store(Request $request)
+    {
+        Livro::create($request->all());
+        return redirect()->route('livros-index');
+    }
+
+    public function edit($id)
+    {
+        $livros = Livro::where('id', $id)->first();
+        if(!empty($livros))
+        {
+            return view('livros.edit', ['livros'=>$livros]);
+        }
+        else
+        {
+            return redirect()->route('livros-index');
+        }
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = [
+            'titulo' => $request->titulo,
+            'autor' => $request->autor,
+            'dataLancamento' => $request->dataLancamento,
+            'genero' => $request->genero,
+            'numeroPaginas' => $request->numeroPaginas
+        ];
+
+        Livro::where('id',$id)->update($data);
+        return redirect()->route('livros-index');
+    }
+
+    public function destroy($id)
+    {
+        Livro::where('id',$id)->delete();
+        return redirect()->route('livros-index');
+    }
+    
 }
