@@ -18,7 +18,7 @@ Route::prefix('livros')->group(function()
 {
     Route::get('/', [LivroController::class, 'index'])->name('livros-index');
 
-    Route::get('/create', [LivroController::class, 'create'])->name('livros-create');
+    Route::get('/create', [LivroController::class, 'create'])->where('numeroPaginas','[0-9]+')->name('livros-create');
 
     Route::post('/',[LivroController::class, 'store'])->name('livros-store');
 

@@ -22,7 +22,15 @@ class LivroController extends Controller
     public function store(Request $request)
     {
         Livro::create($request->all());
-        return redirect()->route('livros-index');
+        if($request->numeroPaginas <= 0)
+        {
+            echo "Número de páginas inválido";
+        }
+        else
+        {
+            echo "Número de páginas válido";
+        }
+        //return redirect()->route('livros-index');
     }
 
     public function edit($id)
