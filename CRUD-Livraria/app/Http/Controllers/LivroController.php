@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreLivrosRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Livro;
+use Illuminate\Support\Facades\Validator;
 
 class LivroController extends Controller
 {
@@ -19,18 +21,34 @@ class LivroController extends Controller
         return view('livros.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreLivrosRequest $request)
     {
-        Livro::create($request->all());
+
+    dd($request);
+    /*
+        if ($validator->fails()) 
+        {
+            return redirect()->route('livros-create')->withErrors("Erro")->withInput();
+        }
+        else
+        {
+            Livro::create($request->all());
+            return redirect()->route('livros-index');
+        }
+*/
+        /*
+        //dd($request);        
         if($request->numeroPaginas <= 0)
         {
+            return redirect()->route('livros-create')->whitErrors($validator)->whitInput();
             echo "Número de páginas inválido";
         }
         else
         {
-            echo "Número de páginas válido";
-        }
-        //return redirect()->route('livros-index');
+            Livro::create($request->all());
+            return redirect()->route('livros-index');
+        }  
+        */
     }
 
     public function edit($id)

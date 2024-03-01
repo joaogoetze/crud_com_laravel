@@ -25,35 +25,35 @@ return new class extends Migration
             array(
                 'titulo' => 'Harry Potter e a Pedra Filosofal',
                 'autor' => 'J.K. Rowling',
-                'dataLancamento' => date('Y-m-d', strtotime('26 de junho de 1997')),
+                'dataLancamento' => "1997-06-26",
                 'genero' => 'Fantasia',
                 'numeroPaginas' => 223
             ),
             array(
                 'titulo' => 'O Senhor dos Anéis: A Sociedade do Anel',
                 'autor' => 'J.R.R. Tolkien',
-                'dataLancamento' => date('Y-m-d', strtotime('29 de julho de 1954')),
+                'dataLancamento' => "1954-07-29",
                 'genero' => 'Fantasia',
                 'numeroPaginas' => 576
             ),
             array(
                 'titulo' => 'A Culpa é das Estrelas',
                 'autor' => 'John Green',
-                'dataLancamento' => date('Y-m-d', strtotime('10 de janeiro de 2012')),
+                'dataLancamento' => "2012-01-10",
                 'genero' => 'Romance',
                 'numeroPaginas' => 288
             ),
             array(
                 'titulo' => 'O Código Da Vinci',
                 'autor' => 'Dan Brown',
-                'dataLancamento' => date('Y-m-d', strtotime('18 de março de 2003')),
+                'dataLancamento' => "2003-03-18",
                 'genero' => 'Suspense',
                 'numeroPaginas' => 464
             ),
             array(
                 'titulo' => 'A Menina que Roubava Livros',
                 'autor' => 'Markus Zusak',
-                'dataLancamento' => date('Y-m-d', strtotime('23 de setembro de 2005')),
+                'dataLancamento' => "2005-09-23",
                 'genero' => 'Ficção Histórica',
                 'numeroPaginas' => 480
             )
