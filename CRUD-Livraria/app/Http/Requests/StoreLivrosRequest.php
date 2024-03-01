@@ -40,7 +40,11 @@ class StoreLivrosRequest extends FormRequest
             'dataLancamento.required' => 'A data de lançamento é obrigatória',
             'dataLancamento.before' => 'A data deve ser inferior a atual', 
             'genero.required' => 'O campo "genero" é obrigatório',
-            '' 
+            'genero.max' => 'O genero informado é muito grande',
+            'numeroPaginas.required' => "O campo páginas é obrigatório",
+            'numeroPaginas.integer' => "O campo páginas deve ser um número",
+            'numeroPaginas.min' => "O número de páginas deve ser maior que 0",
+            'numeroPaginas.max' => "Número de páginas maior que o permitido",
         ];
     }
 }
