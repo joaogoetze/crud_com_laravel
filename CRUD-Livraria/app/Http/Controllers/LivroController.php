@@ -58,6 +58,5 @@ class LivroController extends Controller
     {
         Livro::where('id',$id)->delete();
         return redirect()->route('livros-index');
-    }
-    
+    }   
 }

@@ -1,5 +1,0 @@
-<form action="{{ route('livros-destroy', ['id'=>$livro->id]) }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button type="submit">Deletar</button>
-          </form>

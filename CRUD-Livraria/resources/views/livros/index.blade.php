@@ -5,7 +5,7 @@
 <h1> Livraria </h1>
 
 <a href="{{ route('livros-create') }}">Adicionar livro</a>
-<table class="table">
+<table>
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -40,6 +40,3 @@
   </table>
 
 @endsection('content')
-
-
-
