@@ -1,0 +1,21 @@
+Usar bootstrap com laravel
+
+Usados:
+node 20.11.1
+npm 9.8.1
+composer 2.6.5
+
+instalar o bootstrap
+npm i save --bootstrap @popperjs/core
+
+instalar o sass (tipo de arquivo css)
+npm i --save-dev sass
+
+
+Editar arquivo vite.config.js
+Criar pasta sass e por arquivo app.scss
+
+rodar
+1 terminal: npm run dev
+2 terminal: php artisan serve
+
